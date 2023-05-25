@@ -1,6 +1,7 @@
 package com.siddharthchordia.travelassistant.ui.trips
 
 import android.Manifest
+import android.Manifest.permission.POST_NOTIFICATIONS
 import android.app.Activity
 import android.content.IntentSender
 import android.content.pm.PackageManager
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,6 +54,7 @@ class TripsFragment : Fragment(), CityInputDialogFragment.CityInputListener {
         private const val COARSE_LOCATION_PERMISSION_INDEX = 1
         private const val BACKGROUND_LOCATION_PERMISSION_INDEX = 2
         private const val REQUEST_TURN_DEVICE_LOCATION_ON = 1234
+        private const val MY_PERMISSIONS_REQUEST_POST_NOTIFICATION = 900
     }
 
     private val runningQOrLater = android.os.Build.VERSION.SDK_INT >=
@@ -218,20 +221,30 @@ class TripsFragment : Fragment(), CityInputDialogFragment.CityInputListener {
 
     }
 
+    private fun isNotificationPermissionGranted(): Boolean {
+        if (ContextCompat.checkSelfPermission(requireActivity(), POST_NOTIFICATIONS)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(),
+                listOf(Manifest.permission.POST_NOTIFICATIONS).toTypedArray(),
+                MY_PERMISSIONS_REQUEST_POST_NOTIFICATION);
+            return false
+        }
+        return true
+    }
+
     override fun onCityInput(cityName: String, startDate: Date, endDate: Date): Boolean {
         checkDeviceLocationSettingsAndStartGeofence()
         requestForegroundAndBackgroundLocationPermissions()
 
-        if(deviceLocationEnabled && foregroundAndBackgroundLocationPermissionApproved()) {
+        return if(deviceLocationEnabled && foregroundAndBackgroundLocationPermissionApproved() && isNotificationPermissionGranted()) {
             viewModel.fetchCityCoordinates(cityName, startDate, endDate)
-            return true
+            true
         }
-    else
-        {
+        else {
 
             Toast.makeText(requireContext(), "Location Setting should be enabled", Toast.LENGTH_SHORT)
 
-        return false
+            false
         }
     }
 }
