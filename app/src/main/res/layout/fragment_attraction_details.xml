@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="attractionDetails"
+            type="com.siddharthchordia.travelassistant.ui.home.AttractionDetailsViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true"
+        tools:context=".ui.home.AttractionDetailsFragment"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/item_padding_16dp"
+            android:background="?attr/colorPrimaryContainer"
+            >
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imageViewAttraction"
+                android:layout_width="0dp"
+                android:padding="@dimen/item_padding_16dp"
+                android:layout_height="300dp"
+                app:cardCornerRadius="@dimen/image_card_radius_24dp"
+                app:cardBackgroundColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:foregroundGravity="center">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/item_padding_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:imageUrl="@{attractionDetails.attractionDetails.preview.source}"
+                tools:src="@tools:sample/avatars" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textViewAttractionName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_padding_16dp"
+                android:layout_marginTop="@dimen/item_padding_16dp"
+                android:layout_marginEnd="@dimen/item_padding_16dp"
+                android:text="@{attractionDetails.attractionDetails.name}"
+                android:textColor="#212121"
+                android:textSize="@dimen/title2_24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewAttraction"
+                tools:text="Attraction Name" />
+
+            <TextView
+                android:id="@+id/textViewAttractionDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/item_padding_16dp"
+                android:layout_marginTop="@dimen/item_padding_16dp"
+                android:layout_marginEnd="@dimen/item_padding_16dp"
+                android:layout_marginBottom="@dimen/item_padding_16dp"
+                android:text="@{attractionDetails.attractionDetails.description}"
+                android:textColor="@color/color_1"
+                android:textSize="@dimen/para_size_16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAttractionName"
+                tools:text="Attraction Description" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSaveAttraction"
+                android:layout_width="0dp"
+                app:cornerRadius="@dimen/item_radius_16dp"
+                android:padding="@dimen/general_text_padding_16dp"
+                android:layout_height="wrap_content"
+                android:text="@string/save_attraction"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAttractionDescription"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="@{() -> attractionDetails.saveAttraction()}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

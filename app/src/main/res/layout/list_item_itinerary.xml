@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="attraction"
+            type="com.siddharthchordia.travelassistant.model.AttractionEntity" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/small_8dp"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/medium_16dp">
+
+            <TextView
+                android:id="@+id/tv_attraction_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{attraction.name}"
+                android:textSize="@dimen/medium_16dp"
+                android:textStyle="bold"
+                tools:text="Attraction Name" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_mark_as_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/small_8dp" />
+            <Space
+                android:layout_width="@dimen/item_padding_16dp"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remove"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/small_8dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

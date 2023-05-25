@@ -1,0 +1,20 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="attraction_padding_16dp">16dp</dimen>
+    <dimen name="general_text_padding_16dp">16dp</dimen>
+    <dimen name="item_padding_16dp">16dp</dimen>
+    <dimen name="item_radius_16dp">16dp</dimen>
+    <dimen name="image_card_radius_24dp">24dp</dimen>
+    <dimen name="history_elevation_16dp">16dp</dimen>
+    <dimen name="title2_24sp">24sp</dimen>
+    <dimen name="para_size_16sp">16sp</dimen>
+    <dimen name="small_8dp">8dp</dimen>
+    <dimen name="medium_16dp">16dp</dimen>
+    <dimen name="large_24sp">24sp</dimen>
+    <dimen name="titanic_450dp">450dp</dimen>
+    <dimen name="gigantic_32sp">32sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="xSmall_4dp">4dp</dimen>
+</resources>

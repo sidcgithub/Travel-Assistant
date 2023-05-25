@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Travel Assistant</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="remove_trip_string">Remove</string>
+    <string name="start_exploring_text">Start Exploring</string>
+    <string name="save_attraction">Save Attraction</string>
+    <string name="view_travel_history">View Travel History</string>
+    <string name="city_name">City Name</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="remove">Remove</string>
+    <string name="attraction_name">Attraction Name</string>
+</resources>

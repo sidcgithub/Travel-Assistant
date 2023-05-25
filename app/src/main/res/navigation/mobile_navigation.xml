@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.siddharthchordia.travelassistant.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_attractionsFragment"
+            app:destination="@id/attractionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.siddharthchordia.travelassistant.ui.trips.TripsFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_trips" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.siddharthchordia.travelassistant.ui.itinerary.ItineraryFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_itinerary" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionDetailsFragment2"
+        android:name="com.siddharthchordia.travelassistant.ui.home.AttractionDetailsFragment"
+        android:label="fragment_attraction_details"
+        tools:layout="@layout/fragment_attraction_details">
+        <argument
+            android:name="xid"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/attractionsFragment"
+        android:name="com.siddharthchordia.travelassistant.ui.home.AttractionsFragment"
+        android:label="fragment_attractions"
+        tools:layout="@layout/fragment_attractions" >
+        <action
+            android:id="@+id/action_attractionsFragment_to_attractionDetailsFragment2"
+            app:destination="@id/attractionDetailsFragment2" />
+        <argument
+            android:name="latitude"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="longitude"
+            app:argType="float"
+            android:defaultValue="0.0" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.siddharthchordia.travelassistant.ui.itinerary.HistoryFragment"
+        android:label="HistoryFragment" />
+</navigation>

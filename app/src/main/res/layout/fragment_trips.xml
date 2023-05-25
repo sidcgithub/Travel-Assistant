@@ -1,0 +1,31 @@
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.siddharthchordia.travelassistant.ui.trips.TripsViewModel" />
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryContainer">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tripList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/medium_16dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_16dp"
+        android:contentDescription="@null"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_anchor="@id/tripList"
+        app:layout_anchorGravity="bottom|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
