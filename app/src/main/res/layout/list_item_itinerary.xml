@@ -17,21 +17,23 @@
         app:cardElevation="@dimen/small_8dp"
         app:strokeWidth="1dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:padding="@dimen/medium_16dp">
 
             <TextView
                 android:id="@+id/tv_attraction_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@{attraction.name}"
-                android:textSize="@dimen/medium_16dp"
+                android:textSize="@dimen/para_size_16sp"
                 android:textStyle="bold"
-                tools:text="Attraction Name" />
+                tools:text="Attraction Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_mark_as_done"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_mark_as_done"
@@ -39,10 +41,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/done"
                 android:textColor="@color/white"
-                app:cornerRadius="@dimen/small_8dp" />
+                app:cornerRadius="@dimen/small_8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_attraction_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
             <Space
+                android:id="@+id/space"
                 android:layout_width="@dimen/item_padding_16dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/btn_mark_as_done"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_remove"
@@ -50,7 +60,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/remove"
                 android:textColor="@color/white"
-                app:cornerRadius="@dimen/small_8dp" />
-        </LinearLayout>
+                app:cornerRadius="@dimen/small_8dp"
+                app:layout_constraintStart_toEndOf="@id/space"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
